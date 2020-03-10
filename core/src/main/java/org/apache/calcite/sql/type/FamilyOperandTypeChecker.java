@@ -42,17 +42,26 @@ public class FamilyOperandTypeChecker implements SqlSingleOperandTypeChecker,
 
   protected final ImmutableList<SqlTypeFamily> families;
   protected final Predicate<Integer> optional;
+  protected final boolean varArgs;
 
   //~ Constructors -----------------------------------------------------------
+
+
+  FamilyOperandTypeChecker(List<SqlTypeFamily> families,
+      Predicate<Integer> optional) {
+    this(families, optional, false);
+  }
 
   /**
    * Package private. Create using {@link OperandTypes#family}.
    */
   FamilyOperandTypeChecker(List<SqlTypeFamily> families,
-      Predicate<Integer> optional) {
+      Predicate<Integer> optional, boolean varArgs) {
     this.families = ImmutableList.copyOf(families);
     this.optional = optional;
+    this.varArgs = varArgs;
   }
+
 
   //~ Methods ----------------------------------------------------------------
 
@@ -166,8 +175,8 @@ public class FamilyOperandTypeChecker implements SqlSingleOperandTypeChecker,
   }
 
   public SqlOperandCountRange getOperandCountRange() {
-    final int max = families.size();
-    int min = max;
+    final int max = varArgs ? -1 : families.size();
+    int min = families.size();
     while (min > 0 && optional.test(min - 1)) {
       --min;
     }
