@@ -59,7 +59,7 @@ import static org.apache.calcite.util.Static.RESOURCE;
 public class SqlLiteralChainOperator extends SqlSpecialOperator {
   //~ Constructors -----------------------------------------------------------
 
-  SqlLiteralChainOperator() {
+  public SqlLiteralChainOperator() {
     super(
         "$LiteralChain",
         SqlKind.LITERAL_CHAIN,

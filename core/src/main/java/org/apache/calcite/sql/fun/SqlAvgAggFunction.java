@@ -43,7 +43,7 @@ public class SqlAvgAggFunction extends SqlAggFunction {
     this(kind.name(), kind);
   }
 
-  SqlAvgAggFunction(String name, SqlKind kind) {
+  public SqlAvgAggFunction(String name, SqlKind kind) {
     super(name,
         null,
         kind,

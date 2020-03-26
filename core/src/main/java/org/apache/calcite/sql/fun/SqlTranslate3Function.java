@@ -39,7 +39,7 @@ public class SqlTranslate3Function extends SqlFunction {
   /**
    * Creates the SqlTranslate3Function.
    */
-  SqlTranslate3Function() {
+  public SqlTranslate3Function() {
     super("TRANSLATE3",
         SqlKind.OTHER_FUNCTION,
         ReturnTypes.ARG0_NULLABLE_VARYING,

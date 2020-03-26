@@ -37,7 +37,7 @@ import org.apache.calcite.sql.validate.SqlMonotonicity;
 public class SqlDatetimePlusOperator extends SqlSpecialOperator {
   //~ Constructors -----------------------------------------------------------
 
-  SqlDatetimePlusOperator() {
+  public SqlDatetimePlusOperator() {
     super("+", SqlKind.PLUS, 40, true, ReturnTypes.ARG2_NULLABLE,
         InferTypes.FIRST_KNOWN, OperandTypes.MINUS_DATE_OPERATOR);
   }

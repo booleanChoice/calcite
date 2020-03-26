@@ -40,7 +40,7 @@ import com.google.common.collect.ImmutableList;
 public class SqlOverlapsOperator extends SqlBinaryOperator {
   //~ Constructors -----------------------------------------------------------
 
-  SqlOverlapsOperator(SqlKind kind) {
+  public SqlOverlapsOperator(SqlKind kind) {
     super(kind.sql, kind, 30, true, ReturnTypes.BOOLEAN_NULLABLE,
         InferTypes.FIRST_KNOWN,
         OperandTypes.sequence("'<PERIOD> " + kind.sql + " <PERIOD>'",

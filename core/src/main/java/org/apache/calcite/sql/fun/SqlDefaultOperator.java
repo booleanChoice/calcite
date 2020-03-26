@@ -32,8 +32,8 @@ import org.apache.calcite.sql.type.SqlTypeName;
  * <p>Not an expression; just a holder to represent syntax until the validator
  * has chance to resolve arguments.
  */
-class SqlDefaultOperator extends SqlSpecialOperator {
-  SqlDefaultOperator() {
+public class SqlDefaultOperator extends SqlSpecialOperator {
+  public SqlDefaultOperator() {
     super("DEFAULT", SqlKind.DEFAULT, 100, true,
         ReturnTypes.explicit(SqlTypeName.ANY), InferTypes.RETURN_TYPE,
         OperandTypes.NILADIC);

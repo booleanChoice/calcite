@@ -32,7 +32,7 @@ import org.apache.calcite.sql.validate.SqlMonotonicity;
 public class SqlMonotonicUnaryFunction extends SqlFunction {
   //~ Constructors -----------------------------------------------------------
 
-  protected SqlMonotonicUnaryFunction(
+  public SqlMonotonicUnaryFunction(
       String name,
       SqlKind kind,
       SqlReturnTypeInference returnTypeInference,

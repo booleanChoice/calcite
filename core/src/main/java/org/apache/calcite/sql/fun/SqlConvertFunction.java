@@ -29,7 +29,7 @@ import org.apache.calcite.sql.SqlWriter;
 public class SqlConvertFunction extends SqlFunction {
   //~ Constructors -----------------------------------------------------------
 
-  protected SqlConvertFunction(String name) {
+  public SqlConvertFunction(String name) {
     super(
         name,
         SqlKind.OTHER_FUNCTION,

@@ -53,7 +53,7 @@ import org.apache.calcite.sql.type.SqlTypeName;
  * <p>Returns difference between two timestamps in indicated timestamp
  * interval.
  */
-class SqlTimestampDiffFunction extends SqlFunction {
+public class SqlTimestampDiffFunction extends SqlFunction {
   /** Creates a SqlTimestampDiffFunction. */
   private static final SqlReturnTypeInference RETURN_TYPE_INFERENCE =
       opBinding -> {
@@ -68,7 +68,7 @@ class SqlTimestampDiffFunction extends SqlFunction {
             || opBinding.getOperandType(2).isNullable());
       };
 
-  SqlTimestampDiffFunction() {
+  public SqlTimestampDiffFunction() {
     super("TIMESTAMPDIFF", SqlKind.TIMESTAMP_DIFF,
         RETURN_TYPE_INFERENCE, null,
         OperandTypes.family(SqlTypeFamily.ANY, SqlTypeFamily.DATETIME,

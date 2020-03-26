@@ -33,7 +33,7 @@ import java.util.List;
 /** Operator that returns the current or next value of a sequence. */
 public class SqlSequenceValueOperator extends SqlSpecialOperator {
   /** Creates a SqlSequenceValueOperator. */
-  SqlSequenceValueOperator(SqlKind kind) {
+  public SqlSequenceValueOperator(SqlKind kind) {
     super(kind.name(), kind, 100);
     assert kind == SqlKind.NEXT_VALUE || kind == SqlKind.CURRENT_VALUE;
   }

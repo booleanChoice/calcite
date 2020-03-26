@@ -36,8 +36,8 @@ import org.apache.calcite.sql.type.ReturnTypes;
  *
  * <p>Some examples are in {@code agg.iq}.
  */
-class SqlGroupIdFunction extends SqlAbstractGroupFunction {
-  SqlGroupIdFunction() {
+public class SqlGroupIdFunction extends SqlAbstractGroupFunction {
+  public SqlGroupIdFunction() {
     super("GROUP_ID", SqlKind.GROUP_ID, ReturnTypes.BIGINT, null,
         OperandTypes.NILADIC, SqlFunctionCategory.SYSTEM);
   }

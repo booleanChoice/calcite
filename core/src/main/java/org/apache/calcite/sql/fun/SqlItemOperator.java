@@ -40,7 +40,7 @@ import java.util.Arrays;
  * The item operator {@code [ ... ]}, used to access a given element of an
  * array or map. For example, {@code myArray[3]} or {@code "myMap['foo']"}.
  */
-class SqlItemOperator extends SqlSpecialOperator {
+public class SqlItemOperator extends SqlSpecialOperator {
 
   private static final SqlSingleOperandTypeChecker ARRAY_OR_MAP =
       OperandTypes.or(
@@ -48,7 +48,7 @@ class SqlItemOperator extends SqlSpecialOperator {
           OperandTypes.family(SqlTypeFamily.MAP),
           OperandTypes.family(SqlTypeFamily.ANY));
 
-  SqlItemOperator() {
+  public SqlItemOperator() {
     super("ITEM", SqlKind.ITEM, 100, true, null, null, null);
   }
 

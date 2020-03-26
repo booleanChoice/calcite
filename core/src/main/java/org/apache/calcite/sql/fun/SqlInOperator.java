@@ -58,12 +58,12 @@ public class SqlInOperator extends SqlBinaryOperator {
    *
    * @param kind IN or NOT IN
    */
-  SqlInOperator(SqlKind kind) {
+  public SqlInOperator(SqlKind kind) {
     this(kind.sql, kind);
     assert kind == SqlKind.IN || kind == SqlKind.NOT_IN;
   }
 
-  protected SqlInOperator(String name, SqlKind kind) {
+  public SqlInOperator(String name, SqlKind kind) {
     super(name, kind,
         32,
         true,

@@ -52,7 +52,7 @@ public class SqlSubstringFunction extends SqlFunction {
   /**
    * Creates the SqlSubstringFunction.
    */
-  SqlSubstringFunction() {
+  public SqlSubstringFunction() {
     super(
         "SUBSTRING",
         SqlKind.OTHER_FUNCTION,

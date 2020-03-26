@@ -46,7 +46,7 @@ public class SqlAbstractTimeFunction extends SqlFunction {
 
   //~ Constructors -----------------------------------------------------------
 
-  protected SqlAbstractTimeFunction(String name, SqlTypeName typeName) {
+  public SqlAbstractTimeFunction(String name, SqlTypeName typeName) {
     super(name, SqlKind.OTHER_FUNCTION, null, null, OTC_CUSTOM,
         SqlFunctionCategory.TIMEDATE);
     this.typeName = typeName;

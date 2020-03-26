@@ -49,7 +49,7 @@ public class SqlMultisetQueryConstructor extends SqlSpecialOperator {
     this("MULTISET", SqlKind.MULTISET_QUERY_CONSTRUCTOR);
   }
 
-  protected SqlMultisetQueryConstructor(String name, SqlKind kind) {
+  public SqlMultisetQueryConstructor(String name, SqlKind kind) {
     super(
         name,
         kind, MDX_PRECEDENCE,

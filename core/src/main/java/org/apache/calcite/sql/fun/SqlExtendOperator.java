@@ -33,8 +33,8 @@ import org.apache.calcite.sql.SqlWriter;
  * <p>Not standard SQL. Added to Calcite to support Phoenix, but can be used to
  * achieve schema-on-query against other adapters.
  */
-class SqlExtendOperator extends SqlInternalOperator {
-  SqlExtendOperator() {
+public class SqlExtendOperator extends SqlInternalOperator {
+  public SqlExtendOperator() {
     super("EXTEND", SqlKind.EXTEND, MDX_PRECEDENCE);
   }
 

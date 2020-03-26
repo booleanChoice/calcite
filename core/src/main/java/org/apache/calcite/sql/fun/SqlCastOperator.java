@@ -42,7 +42,7 @@ import org.apache.calcite.sql.validate.SqlMonotonicity;
  * {@code SqlCastFunction}.
  */
 class SqlCastOperator extends SqlBinaryOperator {
-  SqlCastOperator() {
+  public SqlCastOperator() {
     super("::", SqlKind.CAST, 94, true, null, InferTypes.FIRST_KNOWN, null);
   }
 

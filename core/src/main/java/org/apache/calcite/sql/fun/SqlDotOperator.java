@@ -49,7 +49,7 @@ import java.util.Arrays;
  * record. For example, {@code a.b}.
  */
 public class SqlDotOperator extends SqlSpecialOperator {
-  SqlDotOperator() {
+  public SqlDotOperator() {
     super("DOT", SqlKind.DOT, 100, true, null, null, null);
   }
 

@@ -43,7 +43,7 @@ import java.util.List;
  * Definition of the "TRIM" builtin SQL function.
  */
 public class SqlTrimFunction extends SqlFunction {
-  protected static final SqlTrimFunction INSTANCE =
+  public static final SqlTrimFunction INSTANCE =
       new SqlTrimFunction("TRIM", SqlKind.TRIM,
           ReturnTypes.cascade(ReturnTypes.ARG2, SqlTypeTransforms.TO_NULLABLE,
               SqlTypeTransforms.TO_VARYING),

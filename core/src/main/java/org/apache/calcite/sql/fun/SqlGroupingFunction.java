@@ -36,8 +36,8 @@ import org.apache.calcite.sql.type.ReturnTypes;
  *
  * <p>Some examples are in {@code agg.iq}.
  */
-class SqlGroupingFunction extends SqlAbstractGroupFunction {
-  SqlGroupingFunction(String name) {
+public class SqlGroupingFunction extends SqlAbstractGroupFunction {
+  public SqlGroupingFunction(String name) {
     super(name, SqlKind.GROUPING, ReturnTypes.BIGINT, null,
         OperandTypes.ONE_OR_MORE, SqlFunctionCategory.SYSTEM);
   }

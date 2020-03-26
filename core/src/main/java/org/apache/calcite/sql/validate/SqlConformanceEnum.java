@@ -73,7 +73,12 @@ public enum SqlConformanceEnum implements SqlConformance {
 
   /** Conformance value that instructs Calcite to use SQL semantics
    * consistent with Microsoft SQL Server version 2008. */
-  SQL_SERVER_2008;
+  SQL_SERVER_2008,
+
+
+  /** Conformance value that instructs Calcite to use SQL semantics
+   * consistent with Microsoft Aliyun MaxCompute. */
+  MAX_COMPUTE;
 
   public boolean isLiberal() {
     switch (this) {
@@ -178,6 +183,7 @@ public enum SqlConformanceEnum implements SqlConformance {
     case MYSQL_5:
     case ORACLE_10:
     case ORACLE_12:
+    case MAX_COMPUTE:
       return true;
     default:
       return false;
@@ -237,6 +243,7 @@ public enum SqlConformanceEnum implements SqlConformance {
     case BABEL:
     case LENIENT:
     case MYSQL_5:
+    case MAX_COMPUTE:
       return true;
     default:
       return false;
@@ -295,6 +302,7 @@ public enum SqlConformanceEnum implements SqlConformance {
     case ORACLE_10:
     case ORACLE_12:
     case SQL_SERVER_2008:
+    case MAX_COMPUTE:
       return true;
     default:
       return false;

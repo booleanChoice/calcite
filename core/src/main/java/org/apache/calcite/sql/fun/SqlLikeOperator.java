@@ -63,7 +63,7 @@ public class SqlLikeOperator extends SqlSpecialOperator {
    * @param kind    Kind
    * @param negated Whether this is 'NOT LIKE'
    */
-  SqlLikeOperator(
+  public SqlLikeOperator(
       String name,
       SqlKind kind,
       boolean negated) {

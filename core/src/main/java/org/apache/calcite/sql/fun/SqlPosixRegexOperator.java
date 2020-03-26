@@ -55,7 +55,7 @@ public class SqlPosixRegexOperator extends SqlBinaryOperator {
    * @param kind    Kind
    * @param negated Whether this is '!~' or '!~*'
    */
-  SqlPosixRegexOperator(
+  public SqlPosixRegexOperator(
       String name,
       SqlKind kind,
       boolean caseSensitive,
