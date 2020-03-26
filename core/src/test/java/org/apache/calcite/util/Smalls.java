@@ -62,6 +62,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -90,7 +91,7 @@ public class Smalls {
       Types.lookupMethod(MazeTable.class, "generate3", String.class);
   public static final Method MULTIPLICATION_TABLE_METHOD =
       Types.lookupMethod(Smalls.class, "multiplicationTable", int.class,
-          int.class, Integer.class);
+        int.class, Integer.class);
   public static final Method FIBONACCI_TABLE_METHOD =
       Types.lookupMethod(Smalls.class, "fibonacciTable");
   public static final Method FIBONACCI2_TABLE_METHOD =
@@ -256,7 +257,7 @@ public class Smalls {
               private long current = 0;
 
               public Object[] current() {
-                return new Object[]{current};
+                return new Object[] {current};
               }
 
               public boolean moveNext() {
@@ -439,6 +440,25 @@ public class Smalls {
     }
   }
 
+  public static class VarArgs3Function {
+
+    public static final AtomicInteger INSTANCE_COUNT = new AtomicInteger(0);
+
+    // Note: Not marked @Deterministic
+    public VarArgs3Function() {
+      INSTANCE_COUNT.incrementAndGet();
+    }
+
+    public String eval(
+        @Parameter(name = "x") String... strs) {
+      if (strs != null && strs.length > 0) {
+        return  Stream.of(strs).collect(Collectors.joining());
+      }
+      return null;
+    }
+  }
+
+
 
   /** Example of a UDF with a non-static {@code eval} method,
    * and named parameters. */
@@ -490,7 +510,7 @@ public class Smalls {
         @Parameter(name = "C", optional = false) Integer c,
         @Parameter(name = "D", optional = true) Integer d,
         @Parameter(name = "E", optional = true) Integer e) {
-      return "{a: " + a + ", b: " + b + ", c: " + c + ", d: " + d + ", e: "
+      return "{a: " + a + ", b: " + b +  ", c: " + c +  ", d: " + d  + ", e: "
           + e + "}";
     }
   }
@@ -614,11 +634,9 @@ public class Smalls {
     public static String fun1(String x) {
       return x.toLowerCase(Locale.ROOT);
     }
-
     public static int fun1(int x) {
       return x * 2;
     }
-
     public static int fun1(int x, int y) {
       return x + y;
     }
@@ -647,11 +665,9 @@ public class Smalls {
     public static long dateFun(java.sql.Date v) {
       return v == null ? -1L : SqlFunctions.toLong(v);
     }
-
     public static long timestampFun(java.sql.Timestamp v) {
       return v == null ? -1L : SqlFunctions.toLong(v);
     }
-
     public static long timeFun(java.sql.Time v) {
       return v == null ? -1L : SqlFunctions.toLong(v);
     }
@@ -664,26 +680,21 @@ public class Smalls {
     public static java.sql.Date toDateFun(Long v) {
       return v == null ? null : SqlFunctions.internalToDate(v.intValue());
     }
-
     public static java.sql.Timestamp toTimestampFun(Long v) {
       return SqlFunctions.internalToTimestamp(v);
     }
-
     public static java.sql.Time toTimeFun(Long v) {
       return v == null ? null : SqlFunctions.internalToTime(v.intValue());
     }
-
     /** for Overloaded user-defined functions that have Double and BigDecimal
      * arguments will goes wrong
      * */
     public static double toDouble(BigDecimal var) {
       return var == null ? null : var.doubleValue();
     }
-
     public static double toDouble(Double var) {
       return var == null ? 0.0d : var;
     }
-
     public static double toDouble(Float var) {
       return var == null ? 0.0d : Double.valueOf(var.toString());
     }
@@ -716,19 +727,15 @@ public class Smalls {
   public static class MySumFunction {
     public MySumFunction() {
     }
-
     public long init() {
       return 0L;
     }
-
     public long add(long accumulator, int v) {
       return accumulator + v;
     }
-
     public long merge(long accumulator0, long accumulator1) {
       return accumulator0 + accumulator1;
     }
-
     public long result(long accumulator) {
       return accumulator;
     }
@@ -776,15 +783,12 @@ public class Smalls {
     public static long init() {
       return 0L;
     }
-
     public static long add(long accumulator, int v) {
       return accumulator + v;
     }
-
     public static long merge(long accumulator0, long accumulator1) {
       return accumulator0 + accumulator1;
     }
-
     public static long result(long accumulator) {
       return accumulator;
     }
@@ -794,22 +798,18 @@ public class Smalls {
   public static class MyTwoParamsSumFunctionFilter1 {
     public MyTwoParamsSumFunctionFilter1() {
     }
-
     public int init() {
       return 0;
     }
-
     public int add(int accumulator, int v1, int v2) {
       if (v1 > v2) {
         return accumulator + v1;
       }
       return accumulator;
     }
-
     public int merge(int accumulator0, int accumulator1) {
       return accumulator0 + accumulator1;
     }
-
     public int result(int accumulator) {
       return accumulator;
     }
@@ -819,22 +819,18 @@ public class Smalls {
   public static class MyTwoParamsSumFunctionFilter2 {
     public MyTwoParamsSumFunctionFilter2() {
     }
-
     public long init() {
       return 0L;
     }
-
     public long add(long accumulator, int v1, String v2) {
       if (v2.equals("Eric")) {
         return accumulator + v1;
       }
       return accumulator;
     }
-
     public long merge(long accumulator0, long accumulator1) {
       return accumulator0 + accumulator1;
     }
-
     public long result(long accumulator) {
       return accumulator;
     }
@@ -846,18 +842,15 @@ public class Smalls {
     public static long init() {
       return 0L;
     }
-
     public static long add(long accumulator, int v1, String v2, String v3) {
       if (v2.equals(v3)) {
         return accumulator + v1;
       }
       return accumulator;
     }
-
     public static long merge(long accumulator0, long accumulator1) {
       return accumulator0 + accumulator1;
     }
-
     public static long result(long accumulator) {
       return accumulator;
     }
@@ -869,18 +862,15 @@ public class Smalls {
     public static long init() {
       return 0L;
     }
-
     public static long add(long accumulator, int v1, int v2, int v3) {
       if (v3 > 250) {
         return accumulator + v1 + v2;
       }
       return accumulator;
     }
-
     public static long merge(long accumulator0, long accumulator1) {
       return accumulator0 + accumulator1;
     }
-
     public static long result(long accumulator) {
       return accumulator;
     }
@@ -891,7 +881,6 @@ public class Smalls {
     public long init() {
       return 0L;
     }
-
     public long add(short accumulator, int v) {
       return accumulator + v;
     }
